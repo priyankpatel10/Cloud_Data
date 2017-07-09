@@ -1,0 +1,35 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.4.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter')
+	compile('org.springframework.boot:spring-boot-starter-batch')
+	compile('org.springframework.cloud:spring-cloud-task-dependencies:1.2.2.BUILD-SNAPSHOT')
+	compile('org.springframework.cloud:spring-cloud-starter-task')
+	compile('org.springframework.batch:spring-batch-integration:3.0.7.RELEASE')
+	compile('org.springframework.cloud:spring-cloud-deployer-local:1.2.1.RELEASE')
+	compile('com.h2database:h2')
+	compile group: 'org.springframework.cloud', name: 'spring-cloud-task-batch', version: '1.2.1.RELEASE'
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
